@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Scraping With Mongoose</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="wrapper">
+    <center>
+      <div class="top">
+        <h1>NYT Scraper</h1>
+        <button class="scrape" data-id="science" style="display:inline-block">Scrape Science</button>
+        <button class="scrape" data-id="politics" style="display:inline-block">Scrape Politics</button>
+        <button class="scrape" data-id="health" style="display:inline-block">Scrape Health</button>
+        <button class="scrape" data-id="technology" style="display:inline-block">Scrape Tech</button>
+        <button class="saved" style="display:inline-block">Saved</button>
+        <button class="clear" style="display:inline-block">Clear Articles</button>
+      </div>
+    </center>
+
+
+    <div id="articles"></div>
+    <div id="notes"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
