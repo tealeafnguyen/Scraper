@@ -1,3 +1,30 @@
+window.onload = function () {
+  getArticles();
+}
+
+function getArticles() {
+  console.log('boops')
+  $.ajax({
+    method: "GET",
+    url: "/articles"
+  })
+    .then(function (data) {
+      console.log(data);
+      for (var i = 0; i < data.length; i++) {
+        $("#articles").append(`<div class="art">
+          <center>
+          <p data-id=${data[i]._id}> ${data[i].title} <br/>  <a href=${data[i].link}> ${data[i].link}</a></p>
+          <p>${data[i].summary}</p>
+          <button class="note" data-id=${data[i]._id} style="display:inline-block">Note</button>
+          <button class="save" data-id=${data[i]._id} style="display:inline-block">Save</button>
+          </center>
+          </div>
+          `);
+      }
+    });
+}
+
+
 $(document).on('click', '.scrape', function () {
   var thisId = $(this).attr("data-id");
   $("#notes").empty();
@@ -10,7 +37,7 @@ $(document).on('click', '.scrape', function () {
 
   $.ajax({
     method: "GET",
-    url: "/scrape/"+thisId
+    url: "/scrape/" + thisId
   })
     .then(function (data) {
       console.log(data);
